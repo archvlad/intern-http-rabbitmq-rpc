@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Face Generator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <section class="section">
+      <div class="control_pane block">
+        <div class="control has-icons-left">
+          <div class="select is-primary">
+            <select name="gender">
+              <option value="all">Any</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <span class="icon is-left">
+            <i class="fa-solid fa-venus-mars"></i>
+          </span>
+        </div>
+        <div class="control has-icons-left">
+          <div class="select is-primary">
+            <select name="age">
+              <option value="all">Any</option>
+              <option value="12-18">12-18 years old</option>
+              <option value="19-25">19-25 years old</option>
+              <option value="26-35">26-35 years old</option>
+              <option value="35-50">35-50 years old</option>
+              <option value="50">50+ years old</option>
+            </select>
+          </div>
+          <span class="icon is-left">
+            <i class="fa-solid fa-clock"></i>
+          </span>
+        </div>
+        <div class="control has-icons-left">
+          <div class="select is-primary">
+            <select name="etnic">
+              <option value="all">Any</option>
+              <option value="asian">Asian</option>
+              <option value="black">Black</option>
+              <option value="white">White</option>
+              <option value="indian">Indian</option>
+              <option value="middle_eastern">Middle Eastern</option>
+              <option value="latino_hispanic">Latino Hispanic</option>
+            </select>
+          </div>
+          <span class="icon is-left">
+            <i class="fa-solid fa-globe"></i>
+          </span>
+        </div>
+        <button class="button is-primary is-outlined" onclick="generateImage()">
+          Generate
+        </button>
+      </div>
+      <div class="image_pane block">
+        <figure class="image">
+          <img src="" />
+        </figure>
+      </div>
+    </section>
+    <script src="/script.js"></script>
+  </body>
+</html>

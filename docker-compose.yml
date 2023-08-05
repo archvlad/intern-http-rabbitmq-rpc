@@ -1,0 +1,38 @@
+version: '3.8'
+
+networks:
+  default:
+    driver: bridge
+
+services:
+  rpc-client:
+    build: rpc-client/
+    environment:
+      - RABBITMQ_URL=amqp://rabbitmq
+    ports:
+      - 3000:3000
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+  rpc-server:
+    build: rpc-server/
+    environment:
+      - RABBITMQ_URL=amqp://rabbitmq
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    expose:
+      - 5672
+      - 15672
+    healthcheck:
+      test: ['CMD', 'rabbitmqctl', 'status']
+      interval: 5s
+      timeout: 20s
+      retries: 5
+    volumes:
+      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
